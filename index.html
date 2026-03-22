@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>學測7000單字測驗</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+    <nav class="nav">
+        <div class="units" id="unit-container"></div>
+        <div class="sync-tools">
+            <i class="fa-solid fa-file-export sync-btn" title="匯出" onclick="exportData()"></i>
+            <i class="fa-solid fa-file-import sync-btn" title="匯入" onclick="importData()"></i>
+            <i class="fa-solid fa-heart sync-btn" id="note-mode-toggle" onclick="toggleNoteMode()"> <span id="note-count">0</span></i>
+        </div>
+    </nav>
+
+    <div class="prog-container">
+        <div class="prog-text">
+            <span id="mode-label">Learning</span>
+            <span><span id="completed-count">0</span> / <span id="total-count">0</span></span>
+        </div>
+        <div class="prog-line"><div id="progress-bar"></div></div>
+    </div>
+
+    <main class="quiz">
+        <div id="q-pos">POS</div>
+        <h1 id="q-chinese">請選擇單元</h1>
+        <input type="text" id="user-input" spellcheck="false" autocomplete="off" placeholder="Translate...">
+
+        <div class="detail" id="feedback-area">
+            <div class="detail-header">
+                <span id="ans-word">Word</span>
+                <div class="icon-group">
+                    <i class="fa-solid fa-volume-up sync-btn" onclick="speak()"></i>
+                    <i class="fa-solid fa-star sync-btn" id="star-icon" onclick="toggleNote()"></i>
+                </div>
+            </div>
+            <div id="ans-ex-en" style="font-style: italic; margin-bottom: 5px;"></div>
+            <div id="ans-ex-ch" style="color: var(--sub); font-size: 0.9rem;"></div>
+        </div>
+
+        <button class="btn" id="action-btn" onclick="handleAction()">Confirm</button>
+    </main>
+
+    <section class="history">
+        <div class="history-title">RECENTLY</div>
+        <div class="history-items" id="history-list"></div>
+    </section>
+    <section style="margin-top: 20px; color: #888888;">
+        <div>
+            <span>此頁面尚未完全完成，會持續更新至段考結束。若你想要使用更多單字一起學習，請至</span><a href="https://vocabulary-lab.vercel.app/" target="_blank" style="color: #888888;">此處</a>查看，此處的有完整的7000單。
+        </div>
+    </section>
+</div>
+
+<script src="word.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
